@@ -1,4 +1,3 @@
-import './style.css';
 const firestore = firebase.firestore();
 
 const servers = {
