@@ -10,6 +10,7 @@ const firebaseConfig = {
     messagingSenderId: "9945580836",
     appId: "1:9945580836:web:5ce98e36d0556bb99adfb1"
 };
+
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
   }
@@ -25,9 +26,11 @@ if (!firebase.apps.length) {
       ],
       iceCandidatePoolSize: 10,
   }
+
   const constraints = {
       audio: true
   }
+
   const pc = new RTCPeerConnection(servers);
   let localStream = null; 
   let remoteStream = null;
@@ -36,6 +39,7 @@ if (!firebase.apps.length) {
   const callButton = document.getElementById('call');
   //answerbutton for other page 
   const answerButton = document.getElementById('answer')
+
   //answer before call for other reasons 
   try{
   answerButton.onclick = async () => {
@@ -63,6 +67,7 @@ if (!firebase.apps.length) {
             remoteStream.addTrack(track);
         });
     };
+
     // add remote stream to audioplay 
     const audioplay = document.getElementById('audio');
     audioplay.srcObject = remoteStream;
@@ -70,9 +75,12 @@ if (!firebase.apps.length) {
         event.candidate && answerCandidates.add(event.candidate.toJSON());
         console.log(event.candidate && answerCandidates.add(event.candidate.toJSON()));
     };
+
     const callData = (await callDoc.get()).data();
     const offerDescription = callData.offer;
+
     await pc.setRemoteDescription(new RTCSessionDescription(offerDescription));
+
     // This may be useless
     const answerDescription = await pc.createAnswer();
     await pc.setLocalDescription(answerDescription);
@@ -80,7 +88,9 @@ if (!firebase.apps.length) {
         type: answerDescription.type,
         sdp: answerDescription.sdp,
     };
+
     await callDoc.update({answer});
+
     offerCandidates.onSnapshot((snapshot) => {
         snapshot.docChanges().forEach((change) => {
             console.log(change);
@@ -91,6 +101,7 @@ if (!firebase.apps.length) {
         })
     })
 }
+
 } catch(err){ 
     console.log('undefined answerButton, user is on call page')
 }
