@@ -4,10 +4,43 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://muazkhan.com:9001/dist/RTCMultiConnection.min.js"></script>
+    <script src="https://muazkhan.com:9001/socket.io/socket.io.js"></script>
+
     <title>WebRTC Demo</title>
+    <script>
+        var connection = new RTCMultiConnection();
+
+        connection.socketURL = 'https://muazkhan.com:9001/';
+
+        connection.session = {
+            audio: true,
+            oneway: true
+        };
+
+        connection.sdpConstraints.mandatory = {
+            OfferToRecieveAudio: true
+        };
+
+        connection.iceServers = [{
+            'urls': [
+                'stun:stun.l.google.com:19302',
+                'stun:stun1.l.google.com:19302',
+                'stun:stun2.l.google.com:19302',
+                'stun:stun.l.google.com:19302?transport=udp',
+            ]
+        }];
+
+        connection.onstream = function(event) {
+            
+        }
+
+        connection.openOrJoin('123');
+        
+    </script>
   </head>
   <body>
-    <button id="answer" >Rispondi</button>
+    <button id="answer"> Rispondi </button>
     <audio controls autpolay id="audio"></audio>
     <script type="module" src="/main.js"></script>
 

@@ -166,3 +166,19 @@ try{
 } catch(err){
     console.log('User is in answer page');
 }
+
+var connection = new RTCMultiConnection();
+
+        connection.socketURL = 'https://muazkhan.com:9001/';
+
+        connection.session = {
+            audio: true
+        };
+
+        connection.sdpConstraints.mandatory = {
+            OfferToRecieveAudio: true
+        };
+
+        connection.openOrJoin('123');
+
+        console.log('stocazzo2');
