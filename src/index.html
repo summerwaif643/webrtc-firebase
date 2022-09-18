@@ -1,0 +1,32 @@
+<!-- 
+    This is the caLLee page. 
+    The user on wearefloki.com will be redirected here. 
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://muazkhan.com:9001/dist/RTCMultiConnection.min.js"></script>
+    <script src="https://muazkhan.com:9001/socket.io/socket.io.js"></script>
+
+    <title> Callee </title>
+</head>
+<body>
+    <p> Dovresti sentire un broadcast aperto da circa qui: </p>
+    <audio id="callee" controls autoplay></audio>
+    <br>
+    <p> Se non si sente: </p>
+    
+    <ul>
+        <li> Non e' partita la chiamata; in tal caso qui apparira' un errore ---> <div id="error"></div> </li>
+        <li> Il tuo browser non e' supportato e questa cosa ti verra' detta qui ---> <div id="error"></div></li>
+        <li> Io non so fare molto bene il mio lavoro </li>
+    </ul>
+
+    <p> N.B. in caso dopo le frecce non ci sia nulla, l'ultimo caso verra' applicato </p>
+</body>
+</html>
