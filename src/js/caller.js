@@ -12,14 +12,20 @@ var connection = new RTCMultiConnection();
 
 connection.socketURL = 'https://muazkhan.com:9001/';
 
-connection.session = { 
-    audio: true, 
+connection.session = {
+    audio: true,
     video: false,
     oneway: true
 };
 
-connection.sdpConstraints.mandatory= {
-    OfferToRecieveAudio: true
+connection.mediaConstraints = {
+    audio: true,
+    video: false
+};
+
+connection.sdpConstraints.mandatory = {
+    OfferToReceiveAudio: true,
+    OfferToReceiveVideo: false
 };
 
 connection.iceServers = [{

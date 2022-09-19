@@ -1,4 +1,4 @@
-const { isCanvasSupportsStreamCapturing } = require("detectrtc");
+const support = require("detectrtc");
 
 console.log('callee working'); 
 
@@ -25,7 +25,7 @@ connection.iceServers = [{
 
 connection.dontCaptureUserMedia = true;
 
-if (DetectRTC.isWebRTCSupported === false){
+if (support.isWebRTCSupported === false){
         var text = document.createTextNode("Il tuo browser non e' supportat");
         noSupport.appendChild(text);
         console.log('webRTC not supported'); 
