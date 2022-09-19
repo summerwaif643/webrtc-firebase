@@ -1,3 +1,7 @@
+console.log('callee working'); 
+
+var connection = new RTCMultiConnection();
+
 connection.socketURL = 'https://muazkhan.com:9001/';
 
 connection.session = { 
@@ -19,4 +23,7 @@ connection.iceServers = [{
         'stun:stun.l.google.com:19302?transport=udp',
     ]
 }];
+
+
+
 

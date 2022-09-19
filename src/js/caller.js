@@ -32,6 +32,8 @@ connection.iceServers = [{
     ]
 }];
 
+console.log('works here');
+
 connection.open('ID', function(isRoomOpened, roomid, error){
     if (error) {
         var text = document.createTextNode(error);
@@ -41,6 +43,6 @@ connection.open('ID', function(isRoomOpened, roomid, error){
     if ( isRoomOpened === true){
         var text = document.createTextNode('Connessione riuscita');
         errorText.appendChild(text);
-        console.log('stocazzo');
+        console.log('Room already open');
     }
 })
