@@ -34,7 +34,7 @@ connection.iceServers = [{
 
 console.log('works here');
 
-connection.open('ID', function(isRoomOpened, roomid, error){
+connection.open('webrtc-floki', function(isRoomOpened, roomid, error){
     if (error) {
         var text = document.createTextNode(error);
         errorText.appendChild(error);

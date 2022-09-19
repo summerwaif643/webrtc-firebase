@@ -10,7 +10,9 @@
         "vite": "^2.9.15"
     },
     "dependencies": {
-        "firebase": "^8.2.10",
+        "detectrtc": "^1.4.1",
+        "firebase": "^8.10.1",
+        "firebase-tools": "^11.9.0",
         "parcel": "^2.7.0"
     }
 }
