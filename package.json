@@ -3,13 +3,14 @@
     "version": "0.0.0",
     "scripts": {
         "dev": "vite --host",
-        "build": "vite build",
+        "build": "parcel build src/index.html",
         "serve": "vite preview"
     },
     "devDependencies": {
         "vite": "^2.9.15"
     },
     "dependencies": {
-        "firebase": "^8.2.10"
+        "firebase": "^8.2.10",
+        "parcel": "^2.7.0"
     }
 }
