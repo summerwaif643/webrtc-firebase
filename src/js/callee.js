@@ -4,6 +4,7 @@ console.log('callee working');
 var error = document.getElementById('error');
 var noSupport = document.getElementById('noSupport');
 var audio = document.getElementById('callee');
+var success = document.getElementById('success');
 
 var connection = new RTCMultiConnection();
 
@@ -31,18 +32,13 @@ connection.checkPresence('webrtc-floki', function(isRoomExist, roomid){
         if (isRoomExist === true){
             connection.join('webrtc-floki');
             
+            connection.audiosContainer = audio;
+
+            
             connection.onstream = function(event) { 
-
-                var streamAudio = event.mediaElement;
-                console.log('MEDIAELEMENT: '+ event.mediaElement);
-
-                document.body.insertBefore(streamAudio, document.body.firstChild);
-                audio.src = streamAudio;
-
-                //commented out to understand how to implement audiosrc
-                //console.log(event.sream);
-                //audio.src = URL.createObjectURL(event.stream);
                 
+                var text = document.createTextNode('stream successfully started');
+                success.appendChild(text); 
                 console.log('Stream is considered audio:' + event.stream.isAudio);
                 console.log('Stream is considered video:' + event.stream.isVideo);
 
@@ -59,3 +55,18 @@ connection.checkPresence('webrtc-floki', function(isRoomExist, roomid){
         }
     
 });
+
+
+connection.onstream = function(event) {
+    alert(typeof event.mediaElement === 'undefined');
+    audio.srcObject = event.stream;
+    
+};
+
+connection.onstreamended = function(event) { 
+    var mediaElement = document.getElementById('event.streamid');
+
+    if (mediaElement) { 
+        mediaElement.parentNode.removeChild(mediaElement);
+    }
+}
