@@ -4,6 +4,7 @@ console.log('callee working');
 var error = document.getElementById('error');
 var noSupport = document.getElementById('noSupport');
 var audio = document.getElementById('callee');
+
 var connection = new RTCMultiConnection();
 
 connection.socketURL = 'https://muazkhan.com:9001/';
@@ -28,11 +29,12 @@ connection.checkPresence('webrtc-floki', function(isRoomExist, roomid){
         if (isRoomExist === true){
             connection.onstream = function(event) { 
                 audio.src = URL.createObjectURL(event.stream);
-
                 console.log('Stream is considered audio:' + event.stream.isAudio);
                 console.log('Stream is considered video:' + event.stream.isVideo);
 
             }
+            connection.join('webrtc-floki');
+
             //connection.join(roomid);
             console.log('Connected succesfully');
         } else { 
@@ -44,6 +46,3 @@ connection.checkPresence('webrtc-floki', function(isRoomExist, roomid){
         }
     
 });
-
-
-
