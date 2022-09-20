@@ -7,9 +7,21 @@
 
 */
 
+
+
+connection.onstream = function(event) {
+    var video = event.mediaElement;
+    video.id = event.streamid;
+    document.body.insertBefore(video, document.body.firstChild);
+};
+
+
+
 var errorText = document.getElementById('works');
 var connection = new RTCMultiConnection();
 var audio  = document.getElementById('audioContainer');
+
+connection.enableLogs = false;
 
 connection.socketURL = 'https://muazkhan.com:9001/';
 
@@ -44,7 +56,7 @@ console.log('works here');
 
 connection.audiosContainer = audio;
 connection.onstream = function(event) {
-    
+
 }
 
 connection.open('webrtc-floki', function(isRoomOpened, roomid, error){
