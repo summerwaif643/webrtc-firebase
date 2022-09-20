@@ -9,6 +9,7 @@
 
 var errorText = document.getElementById('works');
 var connection = new RTCMultiConnection();
+var audio  = document.getElementById('audioContainer');
 
 connection.socketURL = 'https://muazkhan.com:9001/';
 
@@ -38,7 +39,13 @@ connection.iceServers = [{
     ]
 }];
 
+connection.socketMessageEvent = 'This is a webrtc test for Floki s.r.l based in Italy. As soon as we figure out how to host our own socket.io server, we will use it.';
 console.log('works here');
+
+connection.audiosContainer = audio;
+connection.onstream = function(event) {
+    
+}
 
 connection.open('webrtc-floki', function(isRoomOpened, roomid, error){
     if (error) {
