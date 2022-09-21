@@ -42,7 +42,7 @@ connection.iceServers = [{
 connection.audiosContainer = document.getElementById('audios-container');
 connection.onstream = function(event) {
     var width = parseInt(connection.audiosContainer.clientWidth / 2) - 20;
-    var mediaElement = getHTMLMediaElement(event.mediaElement, {
+    var mediaElement = HTMLMediaElement(event.mediaElement, {
         title: event.userid,
         buttons: ['full-screen'],
         width: width,

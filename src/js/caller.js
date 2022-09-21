@@ -7,19 +7,12 @@
 
 */
 
-
-
-connection.onstream = function(event) {
-    var video = event.mediaElement;
-    video.id = event.streamid;
-    document.body.insertBefore(video, document.body.firstChild);
-};
-
-
+console.log('ayo?');
 
 var errorText = document.getElementById('works');
 var connection = new RTCMultiConnection();
 var audio  = document.getElementById('audioContainer');
+var success = document.getElementById('works');
 
 connection.enableLogs = false;
 connection.autoCreateMediaElement = false; 
@@ -57,20 +50,22 @@ console.log('works here');
 connection.audiosContainer = audio;
 
 connection.open('webrtc-floki', function(isRoomOpened, roomid, error){
+    /*
     if (error) {
         var text = document.createTextNode(error);
         errorText.appendChild(error);
     }
+    */
 
     if ( isRoomOpened === true){
         var text = document.createTextNode('Connessione riuscita');
-        errorText.appendChild(text);
+        works.appendChild(text);
         console.log('Room already open');
     }
 })
 
 connection.onstream = function(event) {
-    alert(typeof event.mediaElement === 'undefined');
+    console.log(typeof event.stream);
     audio.srcObject = event.stream;
-    
+
 };

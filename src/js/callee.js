@@ -6,6 +6,8 @@ var noSupport = document.getElementById('noSupport');
 var audio = document.getElementById('callee');
 var success = document.getElementById('success');
 
+var roomExists = false; 
+
 var connection = new RTCMultiConnection();
 
 connection.enableLogs = false;
@@ -30,22 +32,8 @@ connection.dontCaptureUserMedia = true;
 
 connection.checkPresence('webrtc-floki', function(isRoomExist, roomid){
         if (isRoomExist === true){
-            connection.join('webrtc-floki');
-            
-            connection.audiosContainer = audio;
+            roomExists = true; 
 
-            
-            connection.onstream = function(event) { 
-                
-                var text = document.createTextNode('stream successfully started');
-                success.appendChild(text); 
-                console.log('Stream is considered audio:' + event.stream.isAudio);
-                console.log('Stream is considered video:' + event.stream.isVideo);
-
-            }
-
-            //connection.join(roomid);
-            console.log('Connected succesfully');
         } else { 
 
             console.log('Room is not present');
@@ -56,12 +44,26 @@ connection.checkPresence('webrtc-floki', function(isRoomExist, roomid){
     
 });
 
+/*
+connection.onstream = function(event) { 
+                
+    var text = document.createTextNode('stream successfully started');
+    success.appendChild(text); 
+    console.log('Stream is considered audio:' + event.stream.isAudio);
+    console.log('Stream is considered video:' + event.stream.isVideo);
 
-connection.onstream = function(event) {
-    alert(typeof event.mediaElement === 'undefined');
     audio.srcObject = event.stream;
+
+}
+*/
+
+connection.audiosContainer = audio;
+connection.onstream = function(event) { 
     
-};
+}
+
+//connection.join(roomid);
+connection.join('webrtc-floki');
 
 connection.onstreamended = function(event) { 
     var mediaElement = document.getElementById('event.streamid');
