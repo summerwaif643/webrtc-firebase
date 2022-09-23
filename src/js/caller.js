@@ -7,21 +7,24 @@
 
 */
 
-console.log('ayo?');
-
 var errorText = document.getElementById('works');
 var connection = new RTCMultiConnection();
 var audio  = document.getElementById('audioContainer');
 var success = document.getElementById('works');
+var call = document.getElementById('call');
 
 connection.enableLogs = false;
-connection.autoCreateMediaElement = false; 
+//connection.autoCreateMediaElement = false; 
 connection.socketURL = 'https://muazkhan.com:9001/';
 
 connection.session = {
     audio: true,
-    video: false,
     oneway: true
+};
+
+connection.sdpConstraints.mandatory = {
+    OfferToReceiveAudio: true,
+    OfferToReceiveVideo: false
 };
 
 connection.mediaConstraints = {
@@ -29,10 +32,7 @@ connection.mediaConstraints = {
     video: false
 };
 
-connection.sdpConstraints.mandatory = {
-    OfferToReceiveAudio: true,
-    OfferToReceiveVideo: false
-};
+
 
 connection.iceServers = [{
     'urls': [
@@ -47,25 +47,16 @@ connection.iceServers = [{
 connection.socketMessageEvent = 'This is a webrtc test for Floki s.r.l based in Italy. As soon as we figure out how to host our own socket.io server, we will use it.';
 console.log('works here');
 
-connection.audiosContainer = audio;
+call.onclick = function() { 
+    connection.open('webrtc-floki', function(isRoomOpened, roomid, error){
 
-connection.open('webrtc-floki', function(isRoomOpened, roomid, error){
-    /*
-    if (error) {
-        var text = document.createTextNode(error);
-        errorText.appendChild(error);
-    }
-    */
 
-    if ( isRoomOpened === true){
-        var text = document.createTextNode('Connessione riuscita');
-        works.appendChild(text);
-        console.log('Room already open');
-    }
-})
+        if ( isRoomOpened === true){
+            var text = document.createTextNode('Connessione riuscita');
+            works.appendChild(text);
+            console.log('Room already open');
+        }
+    });
+    
+}
 
-connection.onstream = function(event) {
-    console.log(typeof event.stream);
-    audio.srcObject = event.stream;
-
-};

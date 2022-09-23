@@ -1,5 +1,6 @@
 var connection = new RTCMultiConnection();
 
+
 connection.socketURL = 'https://muazkhan.com:9001/';
 connection.socketMessageEvent = 'audio-conference-demo';
 
@@ -13,9 +14,10 @@ connection.mediaConstraints = {
     video: false
 };
 
+//this is correct
 connection.sdpConstraints.mandatory = {
     OfferToReceiveAudio: true,
-    OfferToReceiveVideo: false
+    OfferToReceiveVideo: true
 };
 
 // https://www.rtcmulticonnection.org/docs/iceServers/
@@ -32,16 +34,6 @@ connection.iceServers = [{
 
 var audio = document.getElementById('audio');
 
-connection.join('webrtc-floki');
-
-setTimeout(function(){
-    console.log("I am the third log after 5 seconds");
-},50000);
-
-connection.onopen = function(event) {
-
-    var firstRemoteStream = connection.streamEvents.selectFirst({ remote: true }).stream;
-firstRemoteStream.unmute();
-    console.log('he');
-};
-
+call.onclick = function() { 
+    connection.join('webrtc-floki');
+}
