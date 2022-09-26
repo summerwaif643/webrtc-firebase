@@ -9,6 +9,11 @@ connection.session = {
     video: false
 };
 
+connection.mediaConstraints = {
+    audio: true,
+    video: false
+};
+
 connection.sdpConstraints.mandatory = {
     OfferToReceiveAudio: true, 
     OfferToReceiveVideo: false
