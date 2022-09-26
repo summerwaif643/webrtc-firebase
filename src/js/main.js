@@ -6,7 +6,8 @@ connection.socketURL = "https://muazkhan.com:9001/";
 
 connection.session = {
     audio: true, 
-    video: false
+    video: false,
+    oneway: true
 };
 
 connection.mediaConstraints = {
@@ -15,7 +16,7 @@ connection.mediaConstraints = {
 };
 
 connection.sdpConstraints.mandatory = {
-    OfferToReceiveAudio: true, 
+    OfferToReceiveAudio: false, 
     OfferToReceiveVideo: false
 };
 
@@ -24,6 +25,8 @@ var remote = document.getElementById('remote');
 
 connection.onstream = function(event) { 
     var video = event.mediaElement;
+
+    //add for existing removal (Remove your ownly created and leave only the hosts)
 
     if (event.type === 'remote'){
         console.log('remote video');
@@ -37,15 +40,18 @@ connection.onstream = function(event) {
 
 };
 
-console.log('giorgia');
-
 join.onclick = function() {
     this.disabled = true;
-    connection.join('webrtc-flokii');
+    connection.sdpConstraints.mandatory = {
+        OfferToReceiveAudio: true,
+        OfferToReceiveVideo: false
+    };
+
+    connection.join('webrtc-floki');
 }
 
 call.onclick = function() {
     this.disabled = true; 
-    connection.open('webrtc-flokii')
+    connection.open('webrtc-floki')
 }
 
