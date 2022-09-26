@@ -4,6 +4,8 @@ var call = document.getElementById('open');
 
 connection.socketURL = "https://muazkhan.com:9001/";
 
+connection.enableLogs = false; 
+
 connection.session = {
     audio: true, 
     video: false,
