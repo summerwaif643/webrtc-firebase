@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script defer  src="js/form.js" type="text/javascript"></script>
+
+    <title>Questionario</title>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img src="logo.png" width="20%" heigth="20%" alt="">
+        </a>
+      </nav>
+
+    <div class="container shadow p-3 mb-5 bg-white rounded">
+        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col-6">
+                <form>
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Inserisci il tuo nome">
+                        
+                      </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Indirizzo email</label>
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Inserisci email">
+                        
+                      </div>
+
+                    <p>Visita all'aperto o al chiuso? </p>
+                
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="apertoChiuso" id="aperto" value="yes" checked>
+                        <label class="form-check-label" for="aperto">
+                         Si
+                        </label>
+                      </div>
+                
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="apertoChiuso" id="chiuso" value="no">
+                        <label class="form-check-label" for="chiuso">
+                          No
+                        </label>
+                      </div>
+                
+                      <br>
+                
+                      <p>Quale zona di Roma vorresti conoscere?</p>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="zone" id="fori" value="fori" checked>
+                        <label class="form-check-label" for="fori">
+                         Fori Imperiali
+                        </label>
+                      </div>
+                
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="zone" id="vaticano" value="vaticano">
+                        <label class="form-check-label" for="vaticano">
+                          Vaticano
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="zone" id="trastevere" value="trastevere">
+                        <label class="form-check-label" for="trastevere">
+                         Trastevere
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="zone" id="ostiense" value="ostiense">
+                        <label class="form-check-label" for="ostiense">
+                          Zona Ostiense
+                        </label>
+                      </div>
+                      <br>
+                
+                      <p>Preferisci un percorso…</p>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="percorso" id="pagano" value="pagano" checked>
+                        <label class="form-check-label" for="pagano">
+                          Pagano
+                        </label>
+                      </div>
+                
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="percorso" id="cristiano" value="cristiano">
+                        <label class="form-check-label" for="cristiano">
+                          Cristiano
+                        </label>
+                      </div>
+                      <br>
+                
+                      <p>Ti piace la street art?</p>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="street" id="streetyes" value="streetyes" checked>
+                        <label class="form-check-label" for="streetyes">
+                          Si
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="street" id="streetno" value="streetno">
+                        <label class="form-check-label" for="streetno">
+                          No
+                        </label>
+                      </div>
+                      <br>
+                
+                      <p>Hai tempo per visitare almeno un museo? </p>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="museum" id="museumYes" value="museumYes" checked>
+                        <label class="form-check-label" for="museumYes">
+                          Si
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="museum" id="museumNo" value="museumNo">
+                        <label class="form-check-label" for="museumNo">
+                          No
+                        </label>
+                      </div>
+                      <br>
+                      
+                      <p>Sei curioso/a di tutto?</p>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="curious" id="curiousYes" value="curiousYes" checked>
+                        <label class="form-check-label" for="curiousYes">
+                          Si
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="curious" id="curiousNo" value="curiousNo">
+                        <label class="form-check-label" for="curiousNo">
+                          No
+                        </label>
+                      </div>
+                      <button type="submit" class="btn btn-primary" style="margin-top: 8%;" onclick="submitData()"> Invia </button>
+                
+                </form>
+            </div>
+            <div class="col">
+
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+</html>
