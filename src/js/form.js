@@ -14,14 +14,14 @@ let prior;
     req.send();
 
 function submitData(){
-    let apertoChiuso =  document.querySelector('input[name="apertoChiuso"]:checked').value;
-    let zona =          document.querySelector('input[name="zone"]:checked').value;
-    let percorso =      document.querySelector('input[name="percorso"]:checked').value;
-    let street =        document.querySelector('input[name="street"]:checked').value;
-    let museum =        document.querySelector('input[name="museum"]:checked').value;
-    let curious =       document.querySelector('input[name="curious"]:checked').value;
-    let email =         document.getElementById('email').value;
-    let nome =          document.getElementById('name').value;
+    let apertoChiuso    =  document.querySelector('input[name="apertoChiuso"]:checked').value;
+    let zona            =          document.querySelector('input[name="zone"]:checked').value;
+    let percorso        =      document.querySelector('input[name="percorso"]:checked').value;
+    let street          =        document.querySelector('input[name="street"]:checked').value;
+    let museum          =        document.querySelector('input[name="museum"]:checked').value;
+    let curious         =       document.querySelector('input[name="curious"]:checked').value;
+    let email           =         document.getElementById('email').value;
+    let nome            =          document.getElementById('name').value;
     //console.log(apertoChiuso, zona, percorso, street, museum, curious, email);
     
     // variables are all set. now bundle in json and send. Everything works 
