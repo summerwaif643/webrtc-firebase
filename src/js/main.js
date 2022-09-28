@@ -1,3 +1,9 @@
+/*
+TODO: Reconnection on drop connection
+TODO: Write better containers 
+*/
+
+
 var connection = new RTCMultiConnection();
 var join = document.getElementById('join');
 var call = document.getElementById('open');

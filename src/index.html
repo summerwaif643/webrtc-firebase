@@ -1,8 +1,3 @@
-<!-- 
-    This is the caLLee page. 
-    The user on wearefloki.com will be redirected here. 
-
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,28 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script defer src="js/RTCMultiConnection.min.js"></script>
+    <script defer src="https://muazkhan.com:9001/dist/RTCMultiConnection.min.js"></script>
     <script defer src="https://muazkhan.com:9001/socket.io/socket.io.js"></script>
-
-
-    <script defer src="js/onstream.js" type="module"></script>
-    <link rel="stylesheet" href="main.css">
-
-    <title> Callee </title>
-</head>
-<body> 
-    <button id="call">Chiama</button>
-    <p> Dovresti sentire un broadcast aperto da circa qui: </p>
-    <br>
-    <p> Se non si sente: </p>
+    <script defer src="js/main.js" type="module"></script>
     
-    <ul>
-        <li> Non e' partita la chiamata; in tal caso qui apparira' un errore ---> <p id="error"></p> </li>
-        <li> Il tuo browser non e' supportato e questa cosa ti verra' detta qui ---> <p id="noSupport"></div></li>
-        <li> Io non so fare molto bene il mio lavoro </li>
-        <li> Lo stream e' aperto? <p id="success"></p></li>
-    </ul>
+    <title>Document</title>
+</head>
+<body>
+    <div id="videos-container"></div>
+    <div id="remote"></div>
+    <button id="join">chiama</button>
+    <button id="open">apri</button>
 
-    <p> N.B. in caso dopo le frecce non ci sia nulla, l'ultimo caso verra' applicato </p>
 </body>
 </html>
