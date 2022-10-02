@@ -60,6 +60,6 @@ join.onclick = function() {
 
 call.onclick = function() {
     this.disabled = true; 
-    connection.open('webrtc-floki')
+    connection.openOrJoin('webrtc-floki');
 }
 

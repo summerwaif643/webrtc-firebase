@@ -51,7 +51,8 @@ function submitData(){
     req.setRequestHeader("Content-Type", "application/json");
     req.setRequestHeader("X-Master-Key", "$2b$10$o6pQLZLaCilO.k6GzYNmw.UNoUhErQZPnum2M58ISKoxCV1Nifncu");
 
-    req.send(JSON.stringify([json, prior])
-    );
+    req.send(JSON.stringify([json, prior]));
+    alert("Il questionario e' stato correttamente inviato.");
+    
  
 };
